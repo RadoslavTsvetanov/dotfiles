@@ -1,0 +1,110 @@
+[colors]
+BASE = #0e0e18
+TEXT = #f6c457
+PURPLE_LIGHT = #957fb8
+PURPLE_DARK = #54546d
+YELLOW_PALE = #90734e
+YELLOW_BRIGHT = #d4a140
+YELLOW = #f6c457
+
+[bar/top]
+width = 100%
+height = 30
+background = ${colors.BASE}
+foreground = ${colors.TEXT}
+font-0 = JetBrainsMono Nerd Font:size=14;1
+
+modules-left = workspaces scratchpad
+modules-center = window
+modules-right = tray network pulseaudio clock battery lock reboot poweroff
+
+[module/workspaces]
+type = internal/xworkspaces
+icon-0 = "1;"
+icon-1 = "2;"
+icon-2 = "3;"
+icon-3 = "4;󰭹"
+icon-4 = "5;"
+enable-scroll = false
+format = <label-state>
+label-active = %icon%
+label-active-background = ${colors.YELLOW_BRIGHT}
+label-active-foreground = ${colors.BASE}
+label-occupied-foreground = ${colors.TEXT}
+label-empty =
+
+[module/scratchpad]
+type = custom/script
+exec = echo " $(swaymsg -t get_tree | jq '[.. | objects | select(.name == "__i3_scratch") | .nodes | length] | add')"
+interval = 2
+label = %output%
+
+[module/window]
+type = internal/window
+label = %title%
+maxlen = 30
+
+[module/tray]
+type = internal/tray
+tray-padding = 10
+
+[module/network]
+type = internal/network
+interface = wlan0
+format-connected = "  %essid%"
+format-connected-background = ${colors.BASE}
+format-connected-foreground = ${colors.TEXT}
+format-disconnected = "󰤮 Disconnected"
+
+[module/clock]
+type = internal/date
+interval = 10
+date = "󰅐 %I:%M %p"
+date-alt = "󰸗 %Y-%m-%d"
+
+[module/battery]
+type = internal/battery
+full-at = 98
+battery = BAT0
+format-charging = "󰂄 %percentage%%"
+format-discharging = "%icon% %percentage%%"
+label-charging = "󰂄 %percentage%%"
+label-full = "󱈑 %percentage%%"
+label-foreground = ${colors.TEXT}
+format-foreground = ${colors.TEXT}
+label-charging-foreground = ${colors.TEXT}
+ramp-capacity-0 = "󱊡"
+ramp-capacity-1 = "󱊢"
+ramp-capacity-2 = "󱊣"
+format-foreground-urgent = ${colors.YELLOW_BRIGHT}
+format-background-urgent = ${colors.BASE}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = "%icon%  %volume%%"
+format-muted = "󰖁 Muted"
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+ramp-volume-2 = ""
+label-muted = "󰖁 Muted"
+label-muted-foreground = ${colors.PURPLE_DARK}
+
+[module/lock]
+type = custom/script
+exec = echo ""
+click-left = swaylock -i ~/.config/backgrounds/guts-lock.png --clock --indicator --indicator-x-position 953 --indicator-y-position 238 --fade-in 0.2 --effect-blur 4x5 --font 'UbuntuMono Nerd Font' --key-hl-color ${colors.YELLOW_PALE} --line-color ${colors.YELLOW_BRIGHT} --ring-color ${colors.BASE} --inside-ver-color ${colors.PURPLE_LIGHT} --ring-ver-color ${colors.PURPLE_LIGHT}
+label-foreground = ${colors.TEXT}
+
+[module/reboot]
+type = custom/script
+exec = echo ""
+click-left = swaynag -m '' -B 'Reboot' 'reboot' -f 'UbuntuMono Nerd Font' --background ${colors.BASE} --border-bottom ${colors.BASE} --button-border-size 1 --button-gap 3 --button-dismiss-gap 3 --button-margin-right 6
+
+[module/poweroff]
+type = custom/script
+exec = echo ""
+click-left = swaynag -m '' -B 'Power off' 'poweroff' -f 'UbuntuMono Nerd Font' --background ${colors.BASE} --border-bottom ${colors.BASE} --button-border-size 1 --button-gap 3 --button-dismiss-gap 3 --button-margin-right 6
+
+[global/wm]
+margin-top = 0
+
