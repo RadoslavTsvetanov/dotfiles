@@ -1,0 +1,16 @@
+import = [ "~/.config/alacritty/colors.toml" ]
+
+[shell]
+program = "/bin/zsh"
+args = []
+
+[window.padding]
+x = 5
+y = 5
+
+[window]
+opacity = 0.75
+
+[font]
+size = 10
+

@@ -1,0 +1,81 @@
+{
+    "position": "top", 
+    "height": 30,
+    "modules-left": ["sway/workspaces", "sway/scratchpad"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["tray", "network", "pulseaudio", "clock", "battery", "custom/lock", "custom/reboot", "custom/poweroff"],
+    // Modules configuration
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{name}: {icon}",
+         	"format-icons": {
+             		"1": "",
+             		"2": "",
+             		"3": "",
+             		"4": "󰭹",
+             		"5": ""
+                }
+        },
+	"sway/scratchpad": {
+		"format": "{icon} {count}",
+		"show-empty": false,
+		"format-icons": ["", " "],
+		"tooltip": true,
+		"tooltip-format": "{app}: {title}"
+	},
+	"custom/lock": {
+		"format": "",
+		"on-click": "exec swaylock -i ~/.config/backgrounds/guts-lock.png --clock --indicator --indicator-x-position 953 --indicator-y-position 238 --fade-in 0.2 --effect-blur 4x5 --font 'UbuntuMono Nerd Font' --key-hl-color 594715 --line-color d4a140 --ring-color 000000 --inside-ver-color b3b2af --ring-ver-color b3b2af"
+	},
+	"custom/reboot": {
+		"format": "",
+		"on-click": "exec swaynag -m '' -B 'Reboot' 'reboot' -f 'UbuntuMono Nerd Font' --background 0e0e18 --border-bottom 0e0e18 --button-border-size 1 --button-gap 3 --button-dismiss-gap 3 --button-margin-right 6"
+	},
+	"custom/poweroff": {
+		"format": "",
+		"on-click": "exec swaynag -m '' -B 'Power off' 'poweroff' -f 'UbuntuMono Nerd Font' --background 0e0e18 --border-bottom 0e0e18 --button-border-size 1 --button-gap 3 --button-dismiss-gap 3 --button-margin-right 6"
+	},
+	"clock": {
+		"format": "󰅐 {:%I:%M %p}",
+        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        	"format-alt": "󰸗 {:%Y-%m-%d}"
+	},
+	"battery": {
+        	"states": {
+            		"warning": 30,
+            		"critical": 15,
+        	},
+        	"format": "{icon} {capacity}%",
+        	"format-charging": "󰂄 {capacity}%",
+        	"format-plugged": "󰂄 {capacity}%",
+        	"format-alt": "{time} {icon}",
+        	"format-full": "󱈑 {capacity}%",
+        	"format-icons": ["󱊡", "󱊢", "󱊣"]
+	},
+	"tray": {
+        // "icon-size": 21,
+        "spacing": 10
+        },
+	"network": {
+        	"format-wifi": "  {essid}",
+        	"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        	"format-linked": "{ifname} (No IP) ",
+        	"format-disconnected": "󰤮 Disconnected",
+        	"format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+	"pulseaudio": {
+		"format": "{icon}  {volume}%",
+        	"format-muted": "󰖁 Muted",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
