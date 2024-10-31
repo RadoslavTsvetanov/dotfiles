@@ -1,6 +1,7 @@
 [colors]
 BACKGROUND = #282828
 TEXT = #ebdbb2
+
 FOREGROUND = #fb4934
 YELLOW_BRIGHT = #fabd2f
 YELLOW = #fe8019
@@ -33,26 +34,6 @@ cursor-scroll = ns-resize
 
 enable-ipc = true
 bottom = true
-
-
-[module/title]
-type = internal/xwindow
-
-; Available tags:
-;   <label> (default)
-format = <label>
-
-format-foreground = ${colors.TEXT}
-format-background = ${colors.BACKGROUND}
-format-padding = 4
-label-empty = Desktop
-
-label-maxlen = 80
-
-; Used instead of label when there is no window title
-; Available tokens:
-;   None
-
 
 [module/tray]
 type = internal/tray
@@ -96,8 +77,8 @@ label = %output%
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:60:...%
-label-foreground = ${colors.TEXT}
-label-background = ${colors.ALERT}
+label-foreground = ${colors.FOREGROUND}
+
 [module/cpu]
 type = internal/cpu
 interval = 4
