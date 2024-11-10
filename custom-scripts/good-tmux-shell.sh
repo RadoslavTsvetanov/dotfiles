@@ -19,7 +19,7 @@ tmux split-window -h
 # Send the command to the upper left pane (pane 0.0)
 tmux send-keys -t main:0.0 'neofetch --ascii /home/x-ae-x/.config/neofetch/ass.txt' C-m
 tmux select-pane -D
-tmux send-keys -t main:0.2 'yazi' C-m
+tmux send-keys -t main:0.2 'ranger' C-m
 # Send the command to the lower left pane (pane 0.1)
 
 # Attach to the tmux session
