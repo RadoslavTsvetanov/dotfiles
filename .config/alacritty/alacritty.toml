@@ -1,0 +1,48 @@
+[colors.cursor]
+cursor = "0xfada16"   # 0x5032ac
+text = "0x5032ac"     # 0xfada16
+[colors.normal]
+black = "0x111111"       # Green
+blue = "0xfada16"        # Yellow
+cyan = "0x4bc98a"        # Light Grey
+green = "0x4bc98a"       # Green
+magenta = "0x4bc98a"     # Near White
+red = "0x4dbd4f"         # Green
+white = "0xd5d8da"       # Pure White
+yellow = "0xfada16"      # Yellow
+
+[colors.primary]
+background = "0x111111"  # Green
+foreground = "0xe0e0e0"  # Pure White
+
+[font]
+size = 9
+
+
+
+[font.bold]
+family = "JetbrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Hermit"
+style = "Italic"
+
+[font.normal]
+family = "JetbrainsMono Nerd Font"
+style = "Regular"
+
+[window]
+opacity = 0.8
+
+[window.padding]
+x = 5
+y = 5
+
+[mouse]
+hide_when_typing = true
+
+
+[cursor]
+style.shape = "Block"
+style.blinking = "On"
